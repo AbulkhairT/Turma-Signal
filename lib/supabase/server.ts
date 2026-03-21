@@ -2,6 +2,20 @@ import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { getSupabaseEnv } from "./env";
 
+type CookieMutation = {
+  name: string;
+  value: string;
+  options?: {
+    domain?: string;
+    path?: string;
+    expires?: Date;
+    httpOnly?: boolean;
+    maxAge?: number;
+    sameSite?: "lax" | "strict" | "none";
+    secure?: boolean;
+  };
+};
+
 export async function getSupabaseServerClient() {
   const cookieStore = await cookies();
   const env = getSupabaseEnv();
@@ -11,7 +25,7 @@ export async function getSupabaseServerClient() {
       getAll() {
         return cookieStore.getAll();
       },
-      setAll(cookiesToSet) {
+      setAll(cookiesToSet: CookieMutation[]) {
         cookiesToSet.forEach(({ name, value, options }) => {
           cookieStore.set(name, value, options);
         });

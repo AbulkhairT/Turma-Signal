@@ -50,3 +50,5 @@ Use the SQL files under `supabase/` from the existing migration + seed deliverab
 
 ## Vercel note
 - In Vercel Project Settings, do **not** set Output Directory to `public`. This repo sets `vercel.json` for Next.js and `.next` output.
+
+- Build includes a postbuild step that ensures `public/` exists for Vercel output-directory checks.

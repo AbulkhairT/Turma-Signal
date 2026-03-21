@@ -46,3 +46,7 @@ Production-minded Next.js 15 + Supabase app for personalized daily signals.
 
 ## Database
 Use the SQL files under `supabase/` from the existing migration + seed deliverables.
+
+
+## Vercel note
+- In Vercel Project Settings, do **not** set Output Directory to `public`. This repo sets `vercel.json` for Next.js and `.next` output.

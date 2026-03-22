@@ -45,7 +45,7 @@ Production-minded Next.js 15 + Supabase app for personalized daily signals.
 - Internal API routes are protected by `x-internal-secret` header (`INTERNAL_CRON_SECRET`).
 
 ## Database
-Use the SQL files under `supabase/` from the existing migration + seed deliverables. Make sure to apply the latest migration `202603220001_fix_auth_profile_trigger.sql` to prevent signup failures if profile trigger inserts fail.
+Use the SQL files under `supabase/` from the existing migration + seed deliverables. Make sure to apply the latest migrations `202603220001_fix_auth_profile_trigger.sql` and `202603220002_harden_auth_profile_trigger_for_schema_variants.sql` to prevent signup failures on schema variants.
 
 
 ## Vercel note
